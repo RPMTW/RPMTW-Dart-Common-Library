@@ -1,0 +1,24 @@
+name: Publish to Pub.dev
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  publishing:
+    if: ${{ !contains(github.event.head_commit.message,'[ci skip]]') && github.repository == 'RPMTW/RPMTW-Dart-Common-Library'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Publish
+        uses: k-paxian/dart-package-publisher@5107bea93e50dba6afb494c449aaa816cf194c34
+        with:
+          accessToken: ${{ secrets.DART_PUB_OAUTH_ACCESS_TOKEN }}
+          refreshToken: ${{ secrets.DART_PUB_OAUTH_REFRESH_TOKEN }}
+          relativePath: .
+          format: true
+          skipTests: true
+          force: true
