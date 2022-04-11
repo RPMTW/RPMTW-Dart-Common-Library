@@ -263,10 +263,12 @@ Cras ac nunc aliquet, dapibus ex id, semper est. Suspendisse eu fringilla mi. Pe
   });
 }
 
-void Function() overridePrint(void Function() testFun) => () {
+void Function() overridePrint(void Function() fun) => () {
       _logs = '';
-      var spec = ZoneSpecification(print: (_, __, ___, String msg) {
+      final ZoneSpecification spec =
+          ZoneSpecification(print: (_, __, ___, String msg) {
         _logs += '$msg\n';
       });
-      return Zone.current.fork(specification: spec).run<void>(testFun);
+
+      return Zone.current.fork(specification: spec).run<void>(fun);
     };
