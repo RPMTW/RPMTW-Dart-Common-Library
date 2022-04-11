@@ -1,4 +1,4 @@
-extension StringCasingExtension on String {
+extension StringExtension on String {
   /// Converts the string to first character upper case.
   /// hello world -> Hello world
   String toCapitalized() =>
@@ -15,7 +15,7 @@ extension StringCasingExtension on String {
   /// Converts the string to title case with spaces.
   ///
   /// HelloWorld -> Hello World
-  String toTitleCaseWithSpace() {
+  String toCapitalizedWithSpace() {
     RegExp regExp = RegExp('[A-Z]');
     String string = toTitleCase();
     List<int> matches = regExp.allMatches(string).map((e) => e.start).toList();

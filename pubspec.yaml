@@ -1,11 +1,11 @@
 name: rpmtw_dart_common_library
 description: RPMTW common library for dart.
-version: 0.0.3
+version: 0.0.4
 homepage: https://www.rpmtw.com
 repository: https://github.com/RPMTW/RPMTW-Dart-Common-Library
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   logger: ^1.1.0
